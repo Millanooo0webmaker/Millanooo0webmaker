@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Websites and product descriptions for small online shops. Clear prices, free sample before you pay, fast replies.">
+<meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f3ee" media="(prefers-color-scheme: light)">
+<title>millanooo0 · Websites &amp; product descriptions for small shops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d12; --bg-2:#10131b; --surface:#151926; --surface-2:#1c2133;
+    --line:rgba(255,255,255,.09); --text:#eef1f6; --muted:#a3abbd;
+    --accent:#ffb15e; --accent-ink:#1a1206; --accent-soft:rgba(255,177,94,.14);
+    --shadow:0 20px 50px rgba(0,0,0,.45);
+    --font-display:"Fraunces", Georgia, "Times New Roman", serif;
+    --font-body:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --radius:20px;
+    --sat:env(safe-area-inset-top,0px); --sar:env(safe-area-inset-right,0px);
+    --sab:env(safe-area-inset-bottom,0px); --sal:env(safe-area-inset-left,0px);
+    color-scheme:dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f6f3ee; --bg-2:#efeae2; --surface:#ffffff; --surface-2:#f3efe8;
+      --line:rgba(20,16,10,.1); --text:#17151a; --muted:#5d5a63;
+      --accent:#c2560f; --accent-ink:#fff7ef; --accent-soft:rgba(194,86,15,.1);
+      --shadow:0 18px 40px rgba(60,40,20,.12);
+      color-scheme:light;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--font-body); font-size:17px; line-height:1.6;
+    padding-left:var(--sal); padding-right:var(--sar);
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0}
+  h2{font-size:clamp(1.9rem,5vw,2.8rem)}
+  h3{font-size:1.25rem}
+  p{margin:0}
+  a{color:inherit}
+  img,svg{display:block;max-width:100%}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+  .wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+  section{padding:4.5rem 0}
+  .eyebrow{display:inline-block;color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.9rem}
+  .lead{color:var(--muted);font-size:1.05rem;max-width:58ch;margin-top:1rem}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:.75rem 1.4rem;
+    border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text);
+    font:inherit;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .15s ease,background .2s,border-color .2s;
+  }
+  .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .btn:active{transform:translateY(0)}
+  .btn-primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+  .btn-primary:hover{filter:brightness(1.05)}
+  .btn-block{width:100%}
+
+  /* Top bar */
+  .topbar{
+    position:sticky;top:0;z-index:50;padding-top:var(--sat);
+    background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+  .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--font-display);font-weight:700;font-size:1.15rem}
+  .brand-mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 210deg,var(--accent),#ff5d8f,#6c7bff,var(--accent));box-shadow:0 6px 18px var(--accent-soft)}
+  .lang{position:relative}
+  .lang-btn{min-height:44px;padding:.5rem .9rem;gap:.45rem;font-weight:600;font-size:.95rem}
+  .lang-btn svg{width:18px;height:18px}
+  .lang-menu{
+    position:absolute;inset-inline-end:0;top:calc(100% + 8px);width:min(300px,calc(100vw - 2.5rem));max-height:70vh;overflow:auto;
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:.4rem;display:none;z-index:60;
+  }
+  .lang-menu[data-open="true"]{display:block}
+  .lang-menu button{
+    width:100%;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.5rem .8rem;border:0;border-radius:10px;
+    background:transparent;color:var(--text);font:inherit;font-size:.95rem;text-align:start;cursor:pointer;
+  }
+  .lang-menu button:hover,.lang-menu button[aria-current="true"]{background:var(--accent-soft)}
+  .lang-menu button[aria-current="true"]::after{content:"✓";color:var(--accent);font-weight:700}
+  .lang-menu .sep{height:1px;background:var(--line);margin:.35rem .5rem}
+  .lang-menu .more{color:var(--accent);font-weight:700}
+  .lang-note{font-size:.8rem;color:var(--muted);padding:.4rem .8rem .6rem}
+  #gt-widget{position:fixed;top:0;left:0;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;clip-path:inset(50%)}
+  .goog-te-banner-frame,.goog-te-banner-frame.skiptranslate,#goog-gt-tt,.goog-te-balloon-frame,.goog-tooltip,.goog-te-spinner-pos,.VIpgJd-ZVi9od-ORHb-OEVmcd,.VIpgJd-ZVi9od-aZ2wEe-wOHMyf{display:none!important}
+  body{top:0!important;position:static!important}
+  .goog-text-highlight{background:transparent!important;box-shadow:none!important}
+  font{background:inherit!important}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;padding:0;min-height:calc(100svh - 64px - var(--sat));display:flex;align-items:center}
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(60% 50% at 80% 20%,color-mix(in srgb,var(--accent) 35%,transparent),transparent 70%),
+      radial-gradient(50% 45% at 15% 85%,rgba(108,123,255,.28),transparent 70%),
+      radial-gradient(40% 40% at 60% 70%,rgba(255,93,143,.2),transparent 70%),
+      var(--bg);
+  }
+  .hero-bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 85%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 85%)}
+  .hero-orb{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;animation:drift 14s ease-in-out infinite alternate}
+  .hero-orb.a{width:46vw;height:46vw;max-width:520px;max-height:520px;right:-8vw;top:6%;background:var(--accent)}
+  .hero-orb.b{width:34vw;height:34vw;max-width:400px;max-height:400px;left:-10vw;bottom:-6%;background:#6c7bff;animation-delay:-6s}
+  @keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-4%,6%,0) scale(1.08)}}
+  #hero-canvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+  #hero-canvas.ready{opacity:1}
+  .hero .wrap{position:relative;z-index:2;padding:5rem 0 4rem;display:grid;gap:2rem;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,8vw,4.6rem);max-width:12ch}
+  .hero h1 em{font-style:italic;color:var(--accent);font-weight:500}
+  .hero .promise{font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--muted);max-width:40ch;margin-top:1.2rem}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin-top:1.6rem;color:var(--muted);font-size:.9rem}
+  .hero-meta span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-inline-end:.5rem;vertical-align:middle}
+  @media (min-width:900px){ .hero .wrap{grid-template-columns:1.1fr .9fr} .hero-spacer{min-height:420px} }
+
+  /* Cards */
+  .grid{display:grid;gap:1.2rem;margin-top:2.2rem}
+  @media (min-width:700px){ .grid-2{grid-template-columns:repeat(2,1fr)} .grid-3{grid-template-columns:repeat(3,1fr)} .grid-4{grid-template-columns:repeat(2,1fr)} }
+  @media (min-width:1000px){ .grid-4{grid-template-columns:repeat(4,1fr)} }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;
+    display:flex;flex-direction:column;gap:1rem;position:relative;transition:transform .2s ease,border-color .2s;
+  }
+  .card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
+  .card.featured{background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 16%,var(--surface)),var(--surface) 60%);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+  .badge{position:absolute;top:1.1rem;inset-inline-end:1.1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:.3rem .6rem;border-radius:999px}
+  .price{font-family:var(--font-display);font-size:2.4rem;font-weight:700;line-height:1}
+  .price small{font-family:var(--font-body);font-size:.9rem;color:var(--muted);font-weight:500}
+  .price.quote{font-size:1.5rem}
+  .card ul{margin:0;padding:0;list-style:none;display:grid;gap:.5rem;color:var(--muted);font-size:.97rem}
+  .card li{display:flex;gap:.6rem;align-items:flex-start}
+  .card li::before{content:"";flex:none;width:18px;height:18px;margin-top:.2rem;border-radius:50%;background:var(--accent-soft);
+    -webkit-mask:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffb15e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");background-size:12px;background-position:center;background-repeat:no-repeat}
+  .card .spacer{flex:1}
+  .packs{display:grid;gap:.8rem}
+  .pack{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1rem;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);flex-wrap:wrap}
+  .pack strong{display:block}
+  .pack span{color:var(--muted);font-size:.9rem}
+  .pack .p{font-family:var(--font-display);font-size:1.5rem;font-weight:700}
+  .pack .btn{min-height:44px;padding:.5rem 1rem;flex:1 1 100%}
+  @media (min-width:480px){ .pack .btn{flex:0 0 auto} }
+  .fineprint{color:var(--muted);font-size:.9rem;margin-top:1.4rem}
+  .fineprint a{color:var(--accent);font-weight:700}
+
+  /* Steps */
+  .steps{counter-reset:step}
+  .step{counter-increment:step}
+  .step .num{font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--accent);line-height:1}
+  .step .num::before{content:"0" counter(step)}
+
+  /* Samples */
+  .sample-art{aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface-2);position:relative}
+  .sample-art svg{width:100%;height:100%}
+  .demo-tag{position:absolute;top:.7rem;inset-inline-start:.7rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--bg);border:1px solid var(--line);padding:.3rem .6rem;border-radius:999px}
+  .sample p{color:var(--muted);font-size:.95rem}
+  .sample a{color:var(--accent);font-weight:700;text-decoration:none}
+  .sample a:hover{text-decoration:underline}
+
+  /* Why */
+  .why{background:var(--bg-2);border-block:1px solid var(--line)}
+  .why .card h3{font-size:1.15rem}
+
+  /* FAQ */
+  details{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:0 1.2rem;margin-top:.8rem}
+  summary{cursor:pointer;list-style:none;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-weight:700;padding:.9rem 0}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.5rem;color:var(--accent);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--muted);padding-bottom:1.1rem}
+
+  /* Contact */
+  .contact .card a.btn{justify-content:flex-start}
+  .contact .handle{font-weight:700;word-break:break-all}
+  footer{padding:2rem 0 calc(2rem + var(--sab));color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  .no-io .reveal{opacity:1;transform:none}
+  html[class*="translated"] .reveal{opacity:1!important;transform:none!important}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none} .hero-orb{animation:none} .card:hover,.btn:hover{transform:none} }
+
+  /* Toast + dialog */
+  .toast{
+    position:fixed;left:50%;bottom:calc(1.2rem + var(--sab));transform:translate(-50%,20px);z-index:100;
+    background:var(--text);color:var(--bg);padding:.8rem 1.1rem;border-radius:999px;font-weight:700;font-size:.95rem;box-shadow:var(--shadow);
+    opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:calc(100vw - 2rem);text-align:center;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  dialog{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:20px;padding:1.4rem;width:min(520px,calc(100vw - 2rem));box-shadow:var(--shadow)}
+  dialog::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+  dialog textarea{width:100%;min-height:120px;margin-top:.8rem;padding:.8rem;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);font:inherit;font-size:.95rem;resize:vertical}
+  dialog .row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand notranslate" translate="no" href="#top" aria-label="millanooo0 design webs, home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>millanooo0</span>
+    </a>
+    <div class="lang">
+      <button class="btn lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <span id="lang-label" class="notranslate" translate="no">English</span>
+      </button>
+      <div class="lang-menu notranslate" translate="no" id="lang-menu" role="listbox" aria-label="Choose language" data-open="false"></div>
+      <div id="gt-widget" aria-hidden="true"></div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-orb a"></div>
+      <div class="hero-orb b"></div>
+    </div>
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">For Etsy &amp; Instagram shops</span>
+        <h1 id="hero-title">Your shop deserves <em>a real home</em> on the web.</h1>
+        <p class="promise">Simple websites and product descriptions that make people hit "buy" — with clear prices and a free sample before you pay.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#services">See packages</a>
+          <button class="btn book" type="button" data-pkg="" data-price="">Book now</button>
+        </div>
+        <div class="hero-meta">
+          <span>Fast replies on Instagram</span>
+          <span>Prices shown upfront</span>
+          <span>Free sample first</span>
+        </div>
+      </div>
+      <div class="hero-spacer" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Services &amp; packs</span>
+        <h2 id="services-title">Pick what your shop needs today.</h2>
+        <p class="lead">Every price is final — no hidden fees. Not sure which one fits? Just message me and I&apos;ll point you to the right one.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <!-- 1. Blog website -->
+        <article class="card featured reveal">
+          <span class="badge">Most complete</span>
+          <h3>Blog website for your shop</h3>
+          <p class="price notranslate" translate="no">$100 <small>one-time</small></p>
+          <ul>
+            <li>Built directly for your shop, using your shop&apos;s photos</li>
+            <li>Includes 5 custom product descriptions</li>
+            <li>Mobile-friendly and easy to edit yourself</li>
+            <li>Free sample before you pay</li>
+          </ul>
+          <div class="spacer"></div>
+          <button class="btn btn-primary btn-block book" type="button" data-pkg="Blog website for your shop" data-price="$100">Book now</button>
+        </article>
+
+        <!-- 2. Description packs -->
+        <article class="card reveal">
+          <h3>Custom product description packs</h3>
+          <p class="lead" style="margin-top:0">Descriptions written for your products, your style, and your buyers. Minimum order: 3 descriptions.</p>
+          <div class="packs">
+            <div class="pack">
+              <div><strong>Starter</strong><span>3 descriptions</span></div>
+              <div class="p notranslate" translate="no">$30</div>
+              <button class="btn book" type="button" data-pkg="Starter pack (3 descriptions)" data-price="$30">Book now</button>
+            </div>
+            <div class="pack">
+              <div><strong>Standard</strong><span>6 descriptions</span></div>
+              <div class="p notranslate" translate="no">$55</div>
+              <button class="btn book" type="button" data-pkg="Standard pack (6 descriptions)" data-price="$55">Book now</button>
+            </div>
+            <div class="pack">
+              <div><strong>Shop pack</strong><span>10 descriptions + 10 title fixes</span></div>
+              <div class="p notranslate" translate="no">$90</div>
+              <button class="btn btn-primary book" type="button" data-pkg="Shop pack (10 descriptions + 10 title fixes)" data-price="$90">Book now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Title fixes -->
+        <article class="card reveal">
+          <h3>Product title fixes &amp; keyword cleanup</h3>
+          <p class="price quote">Ask for a quote</p>
+          <ul>
+            <li>Clearer titles people actually search for</li>
+            <li>Remove clutter and repeated words</li>
+            <li>Priced by number of listings</li>
+          </ul>
+          <div class="spacer"></div>
+          <button class="btn btn-block book" type="button" data-pkg="Product title fixes & keyword cleanup" data-price="quote">Book now</button>
+        </article>
+
+        <!-- 4. One-page site -->
+        <article class="card reveal">
+          <h3>Simple one-page website</h3>
+          <p class="price quote">Ask for a quote</p>
+          <ul>
+            <li>One clean page: who you are, what you sell, how to buy</li>
+            <li>Links to your Etsy or Instagram shop</li>
+            <li>Great for a link-in-bio upgrade</li>
+          </ul>
+          <div class="spacer"></div>
+          <button class="btn btn-block book" type="button" data-pkg="Simple one-page website" data-price="quote">Book now</button>
+        </article>
+      </div>
+
+      <p class="fineprint reveal">Prefer email? <a href="mailto:proxking39@gmail.com">Send me a message at proxking39@gmail.com</a>. Prices are in USD.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">How it works</span>
+        <h2 id="how-title">Three steps. No tech talk.</h2>
+      </div>
+      <div class="grid grid-3 steps">
+        <article class="card step reveal">
+          <span class="num" aria-hidden="true"></span>
+          <h3>Pick a package and message me</h3>
+          <p class="lead" style="margin-top:0">Tap "Book now", paste the ready message into Instagram, and add your shop link.</p>
+        </article>
+        <article class="card step reveal">
+          <span class="num" aria-hidden="true"></span>
+          <h3>Free sample for your first product</h3>
+          <p class="lead" style="margin-top:0">I write one description (or a mini page preview) for free so you can see the style before paying.</p>
+        </article>
+        <article class="card step reveal">
+          <span class="num" aria-hidden="true"></span>
+          <h3>Delivery and edits</h3>
+          <p class="lead" style="margin-top:0">You get the files or the live site, plus up to 2 rounds of edits to fit your shop.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK SAMPLES -->
+  <section id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Work samples</span>
+        <h2 id="work-title">Demo projects</h2>
+        <p class="lead">Short video demos of the style and layout are on my Instagram. They show fictional shops, not real client shops.</p>
+        <p><a class="btn btn-primary" href="https://www.instagram.com/millanooo0_design_webs/" target="_blank" rel="noopener">Watch the demos on Instagram</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ME -->
+  <section class="why" id="why" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Why me</span>
+        <h2 id="why-title">Honest, simple, and on your side.</h2>
+      </div>
+      <div class="grid grid-4">
+        <article class="card reveal"><h3>Fast replies</h3><p class="lead" style="margin-top:0">Message me on Instagram and you&apos;ll hear back quickly, in plain words.</p></article>
+        <article class="card reveal"><h3>Clear prices</h3><p class="lead" style="margin-top:0">What you see on this page is what you pay. No surprises later.</p></article>
+        <article class="card reveal"><h3>Free sample before you pay</h3><p class="lead" style="margin-top:0">You check the style first. If it isn&apos;t for you, you owe nothing.</p></article>
+        <article class="card reveal"><h3>You can edit it yourself</h3><p class="lead" style="margin-top:0">Your site stays yours. Change text and photos without asking me.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-title">Quick answers</h2>
+      </div>
+      <div class="reveal">
+        <details><summary>How do I pay?</summary><p>We agree on the package in the chat first. You pay only after you&apos;ve seen the free sample and you&apos;re happy with it. For websites, the final files or live site are handed over after payment.</p></details>
+        <details><summary>What do you need from me?</summary><p>Your shop link, the products you want descriptions for, and a few words about your style. Your own photos if we build a site.</p></details>
+        <details><summary>Can I ask for changes?</summary><p>Yes. Up to 2 rounds of edits are included in every package. Extra changes are quoted separately.</p></details>
+        <details><summary>Do you work with shops outside Etsy and Instagram?</summary><p>Yes. If you sell online in a small shop of any kind, message me and we&apos;ll find the right fit.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Contact</span>
+        <h2 id="contact-title">Two ways to reach me.</h2>
+        <p class="lead">Instagram is the fastest. Email works too.</p>
+      </div>
+      <div class="grid grid-2">
+        <article class="card reveal">
+          <h3>Instagram</h3>
+          <p class="handle notranslate" translate="no">@millanooo0_design_webs</p>
+          <a class="btn btn-primary" href="https://ig.me/m/millanooo0_design_webs" target="_blank" rel="noopener noreferrer">Open Instagram chat</a>
+        </article>
+        <article class="card reveal">
+          <h3>Email</h3>
+          <p class="handle notranslate" translate="no">proxking39@gmail.com</p>
+          <a class="btn" href="mailto:proxking39@gmail.com">Send an email</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="notranslate" translate="no">© <span id="year"></span> millanooo0</span>
+    <span>Websites &amp; product descriptions for small shops.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="copy-dialog" aria-labelledby="copy-title">
+  <h3 id="copy-title">Copy this message</h3>
+  <p class="lead" style="margin-top:.4rem">Copying didn&apos;t work automatically. Select the text below and paste it in the Instagram chat.</p>
+  <label class="sr-only" for="copy-text">Message to copy</label>
+  <textarea id="copy-text" class="notranslate" translate="no" readonly></textarea>
+  <div class="row">
+    <a class="btn btn-primary" id="copy-dialog-open" href="https://ig.me/m/millanooo0_design_webs" target="_blank" rel="noopener noreferrer">Open Instagram chat</a>
+    <button class="btn" type="button" id="copy-dialog-close">Close</button>
+  </div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="" crossorigin="anonymous" defer></script>
+
+<script>
+(function(){
+  'use strict';
+  var IG_URL = 'https://ig.me/m/millanooo0_design_webs';
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Toast ---------- */
+  var toast = document.getElementById('toast'), toastTimer;
+  function showToast(msg){
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 3200);
+  }
+
+  /* ---------- Book now ---------- */
+  function buildMessage(pkg, price){
+    if (!pkg) return "Hi! I'd like to book one of your packages. My shop link is: ___ . Here are the products I'd like descriptions for: ___ .";
+    var p = price === 'quote' ? 'custom quote' : price;
+    return "Hi! I'd like to book the " + pkg + " (" + p + "). My shop link is: ___ . Here are the products I'd like descriptions for: ___ .";
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly',''); ta.className = 'notranslate';
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e){ ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+  var dialog = document.getElementById('copy-dialog');
+  function showDialog(text){
+    document.getElementById('copy-text').value = text;
+    try { if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open',''); } catch(e){ dialog.setAttribute('open',''); }
+    try { document.getElementById('copy-text').select(); } catch(e){}
+  }
+  document.getElementById('copy-dialog-close').addEventListener('click', function(){
+    try { dialog.close(); } catch(e){ dialog.removeAttribute('open'); }
+  });
+  function openChat(){
+    var w = null;
+    try { w = window.open(IG_URL, '_blank', 'noopener'); } catch(e){ w = null; }
+    return w;
+  }
+  function onCopied(){ showToast('Message copied. Paste it in the chat.'); setTimeout(openChat, 600); }
+  function onCopyFailed(text){ openChat(); showDialog(text); }
+
+  function handleBook(text){
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(onCopied, function(){
+          if (fallbackCopy(text)) onCopied(); else onCopyFailed(text);
+        });
+      } else if (fallbackCopy(text)) {
+        onCopied();
+      } else {
+        onCopyFailed(text);
+      }
+    } catch(e){ onCopyFailed(text); }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.book'), function(btn){
+    btn.addEventListener('click', function(){
+      handleBook(buildMessage(btn.getAttribute('data-pkg'), btn.getAttribute('data-price')));
+    });
+  });
+
+  /* ---------- Scroll reveals ---------- */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal'), function(el){ io.observe(el); });
+  } else {
+    document.documentElement.classList.add('no-io');
+  }
+
+  /* ---------- Language switcher (Google Translate widget) ---------- */
+  var FEATURED = [['ar','العربية'],['es','Español'],['fr','Français'],['de','Deutsch'],['tr','Türkçe'],['pt','Português'],['it','Italiano'],['ru','Русский'],['pl','Polski'],['zh-CN','中文']];
+  var ALL = [['af','Afrikaans'],['sq','Shqip'],['am','አማርኛ'],['ar','العربية'],['hy','Հայերեն'],['az','Azərbaycan'],['bn','বাংলা'],['bs','Bosanski'],['bg','Български'],['ca','Català'],['zh-CN','中文 (简体)'],['zh-TW','中文 (繁體)'],['hr','Hrvatski'],['cs','Čeština'],['da','Dansk'],['nl','Nederlands'],['et','Eesti'],['fa','فارسی'],['fi','Suomi'],['fr','Français'],['ka','ქართული'],['de','Deutsch'],['el','Ελληνικά'],['gu','ગુજરાતી'],['he','עברית'],['hi','हिन्दी'],['hu','Magyar'],['is','Íslenska'],['id','Bahasa Indonesia'],['it','Italiano'],['ja','日本語'],['kk','Қазақ'],['ko','한국어'],['lv','Latviešu'],['lt','Lietuvių'],['ms','Bahasa Melayu'],['no','Norsk'],['pl','Polski'],['pt','Português'],['ro','Română'],['ru','Русский'],['sr','Српски'],['sk','Slovenčina'],['sl','Slovenščina'],['es','Español'],['sw','Kiswahili'],['sv','Svenska'],['tl','Filipino'],['ta','தமிழ்'],['th','ไทย'],['tr','Türkçe'],['uk','Українська'],['ur','اردو'],['vi','Tiếng Việt']];
+  var RTL = {ar:1, he:1, fa:1, ur:1};
+  var langBtn = document.getElementById('lang-btn'), langMenu = document.getElementById('lang-menu'), langLabel = document.getElementById('lang-label');
+  var gtReady = false, pending = null, showAll = false;
+  try {
+    if (/[?&]lang=en\b/.test(location.search)) {
+      localStorage.removeItem('site-lang');
+      var h0 = location.hostname, x0 = 'expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+      document.cookie = 'googtrans=;' + x0;
+      document.cookie = 'googtrans=;' + x0 + ';domain=' + h0;
+      document.cookie = 'googtrans=;' + x0 + ';domain=.' + h0;
+      history.replaceState(null, '', location.pathname + location.hash);
+    }
+  } catch(e){}
+  var current = 'en';
+  try { current = localStorage.getItem('site-lang') || 'en'; } catch(e){}
+
+  function nameOf(code){
+    if (code === 'en') return 'English';
+    for (var i=0;i<ALL.length;i++) if (ALL[i][0]===code) return ALL[i][1];
+    for (var j=0;j<FEATURED.length;j++) if (FEATURED[j][0]===code) return FEATURED[j][1];
+    return code;
+  }
+  function renderMenu(){
+    var list = showAll ? ALL : FEATURED;
+    var html = '<button type="button" role="option" data-lang="en" aria-current="' + (current==='en') + '">English</button><div class="sep"></div>';
+    list.forEach(function(l){
+      html += '<button type="button" role="option" data-lang="' + l[0] + '" aria-current="' + (current===l[0]) + '">' + l[1] + '</button>';
+    });
+    html += '<div class="sep"></div><button type="button" class="more" data-more="1">' + (showAll ? 'Show fewer languages' : 'More languages…') + '</button>';
+    if (!gtReady) html += '<div class="lang-note">Translation powered by Google. If it does not load, the page stays in English.</div>';
+    langMenu.innerHTML = html;
+  }
+  function setOpen(open){ langMenu.setAttribute('data-open', open ? 'true' : 'false'); langBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  langBtn.addEventListener('click', function(){ var open = langMenu.getAttribute('data-open') === 'true'; if (!open) renderMenu(); setOpen(!open); });
+  document.addEventListener('click', function(e){ if (!e.target.closest('.lang')) setOpen(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setOpen(false); });
+  langMenu.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.hasAttribute('data-more')) { showAll = !showAll; renderMenu(); return; }
+    chooseLang(b.getAttribute('data-lang'));
+    setOpen(false);
+  });
+
+  function applyDir(code){
+    var rtl = !!RTL[code];
+    document.documentElement.setAttribute('dir', rtl ? 'rtl' : 'ltr');
+    document.documentElement.setAttribute('lang', code === 'en' ? 'en' : code.toLowerCase());
+    try { window.scrollTo(0, window.pageYOffset || 0); } catch(e){}
+  }
+  function clearGoogTrans(){
+    var host = location.hostname;
+    var exp = 'expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+    document.cookie = 'googtrans=;' + exp;
+    if (host) {
+      document.cookie = 'googtrans=;' + exp + ';domain=' + host;
+      document.cookie = 'googtrans=;' + exp + ';domain=.' + host;
+    }
+  }
+  function translateTo(code){
+    var combo = document.querySelector('#gt-widget select.goog-te-combo');
+    if (!combo) return false;
+    if (code === 'en') {
+      clearGoogTrans();
+      // Google only reliably restores the original text with a reload.
+      if (document.documentElement.classList.contains('translated-ltr') || document.documentElement.classList.contains('translated-rtl')) {
+        location.reload(); return true;
+      }
+      combo.value = ''; return true;
+    }
+    combo.value = code;
+    combo.dispatchEvent(new Event('change', { bubbles: true }));
+    return true;
+  }
+  function chooseLang(code){
+    current = code;
+    try { localStorage.setItem('site-lang', code); } catch(e){}
+    langLabel.textContent = nameOf(code);
+    applyDir(code);
+    if (code !== 'en') document.documentElement.classList.add('no-io');
+    if (gtReady) { translateTo(code); }
+    else {
+      pending = code;
+      if (code !== 'en') showToast('Loading translation…');
+    }
+  }
+  // Public callback for the Google script.
+  window.googleTranslateElementInit = function(){
+    try {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'gt-widget');
+    } catch(e){ return; }
+    var tries = 0;
+    (function waitCombo(){
+      var combo = document.querySelector('#gt-widget select.goog-te-combo');
+      if (combo) {
+        gtReady = true;
+        var target = pending || current;
+        pending = null;
+        if (target && target !== 'en') translateTo(target);
+      } else if (tries++ < 60) { setTimeout(waitCombo, 150); }
+    })();
+  };
+  // Initial state (works with or without Google).
+  langLabel.textContent = nameOf(current);
+  applyDir(current);
+  if (current !== 'en') document.documentElement.classList.add('no-io');
+  // Load the Google script; if it fails, English stays and nothing breaks.
+  (function loadGT(){
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    s.async = true;
+    s.onerror = function(){ gtReady = false; if (current !== 'en') { showToast('Translation is unavailable right now. Showing English.'); } };
+    document.head.appendChild(s);
+  })();
+})();
+</script>
+
+<script>
+/* ---------- 3D hero (Three.js r128 UMD) ---------- */
+(function(){
+  'use strict';
+  var canvas = document.getElementById('hero-canvas');
+  function allowed(){
+    if (window.innerWidth < 600) return false;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    try {
+      var c = document.createElement('canvas');
+      if (!(c.getContext('webgl') || c.getContext('experimental-webgl'))) return false;
+    } catch(e){ return false; }
+    return true;
+  }
+  function init(){
+    if (!window.THREE || !allowed()) { canvas.remove(); return; }
+    var THREE = window.THREE;
+    var hero = canvas.parentElement;
+    var renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: 'low-power' });
+    } catch(e){ canvas.remove(); return; }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    camera.position.set(0, 0, 9);
+
+    var dark = !(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+    var accent = dark ? 0xffb15e : 0xc2560f;
+
+    var group = new THREE.Group();
+    scene.add(group);
+
+    var knot = new THREE.Mesh(
+      new THREE.TorusKnotGeometry(1.35, 0.42, 220, 28, 2, 3),
+      new THREE.MeshStandardMaterial({ color: dark ? 0x1b2033 : 0xffffff, metalness: 0.75, roughness: 0.22, emissive: accent, emissiveIntensity: 0.08 })
+    );
+    group.add(knot);
+
+    var shards = new THREE.Group();
+    var shardGeo = new THREE.OctahedronGeometry(0.22, 0);
+    var shardMat = new THREE.MeshStandardMaterial({ color: accent, metalness: 0.4, roughness: 0.35, emissive: accent, emissiveIntensity: 0.35 });
+    for (var i = 0; i < 14; i++) {
+      var m = new THREE.Mesh(shardGeo, shardMat);
+      var a = (i / 14) * Math.PI * 2, r = 2.9 + Math.sin(i * 1.7) * 0.5;
+      m.position.set(Math.cos(a) * r, Math.sin(a * 1.3) * 1.4, Math.sin(a) * r * 0.6);
+      m.scale.setScalar(0.6 + (i % 3) * 0.3);
+      m.userData.phase = i;
+      shards.add(m);
+    }
+    group.add(shards);
+
+    scene.add(new THREE.AmbientLight(0xffffff, dark ? 0.35 : 0.7));
+    var key = new THREE.PointLight(accent, 1.6, 30); key.position.set(4, 3, 5); scene.add(key);
+    var fill = new THREE.PointLight(0x6c7bff, 1.1, 30); fill.position.set(-5, -2, 4); scene.add(fill);
+    var rim = new THREE.PointLight(0xff5d8f, 0.8, 30); rim.position.set(0, 4, -4); scene.add(rim);
+
+    function resize(){
+      var w = hero.clientWidth, h = hero.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h; camera.updateProjectionMatrix();
+      // Nudge the object to the right half on wide screens.
+      group.position.x = w > 900 ? 2.2 : 0;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var target = { x: 0, y: 0 }, cur = { x: 0, y: 0 };
+    function onPointer(x, y){
+      target.x = (x / window.innerWidth - 0.5) * 2;
+      target.y = (y / window.innerHeight - 0.5) * 2;
+    }
+    window.addEventListener('mousemove', function(e){ onPointer(e.clientX, e.clientY); }, { passive: true });
+    window.addEventListener('touchmove', function(e){ if (e.touches[0]) onPointer(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+
+    var running = true, visible = true, raf = 0, t0 = performance.now();
+    function frame(now){
+      raf = 0;
+      if (!running || !visible) return;
+      var t = (now - t0) / 1000;
+      cur.x += (target.x - cur.x) * 0.04; cur.y += (target.y - cur.y) * 0.04;
+      knot.rotation.x = t * 0.18 + cur.y * 0.35;
+      knot.rotation.y = t * 0.26 + cur.x * 0.5;
+      group.position.y = Math.sin(t * 0.7) * 0.18;
+      shards.rotation.y = -t * 0.12;
+      shards.children.forEach(function(s){ s.rotation.x = t * 0.6 + s.userData.phase; s.position.y += Math.sin(t * 1.2 + s.userData.phase) * 0.0025; });
+      camera.position.x = cur.x * 0.4; camera.position.y = -cur.y * 0.3; camera.lookAt(group.position.x, 0, 0);
+      renderer.render(scene, camera);
+      raf = requestAnimationFrame(frame);
+    }
+    function start(){ if (!raf && running && visible) raf = requestAnimationFrame(frame); }
+    document.addEventListener('visibilitychange', function(){ running = !document.hidden; if (running) t0 = performance.now() - 1; start(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(en){ visible = en[0].isIntersecting; start(); }).observe(hero);
+    }
+    canvas.classList.add('ready');
+    start();
+  }
+  var s = document.querySelector('script[src*="three.min.js"]');
+  if (window.THREE) init();
+  else if (s) { s.addEventListener('load', init); s.addEventListener('error', function(){ canvas.remove(); }); }
+  else canvas.remove();
+})();
+</script>
+</body>
+</html>
